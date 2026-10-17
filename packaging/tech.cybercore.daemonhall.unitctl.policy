@@ -6,7 +6,7 @@
      one user who installed DaemonHall run it without one. -->
 <policyconfig>
   <vendor>Cybercore Tech</vendor>
-  <vendor_url>https://github.com/cybercore-tech/DaemonHall</vendor_url>
+  <vendor_url>https://github.com/cybercoretech/DaemonHall</vendor_url>
   <action id="tech.cybercore.daemonhall.unitctl">
     <description>Manage the systemd units DaemonHall watches</description>
     <message>Authentication is required to manage services with DaemonHall</message>

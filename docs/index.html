@@ -44,10 +44,10 @@
 
   <header class="top">
     <div class="wrap top-row">
-      <a class="brand" href="https://cybercore-tech.github.io/" aria-label="Cybercore Tech home"><span class="brand-emblem">CC</span><span class="brand-name">CYBERCORE<b>TECH</b></span></a>
+      <a class="brand" href="https://cybercoretech.github.io/" aria-label="Cybercore Tech home"><span class="brand-emblem">CC</span><span class="brand-name">CYBERCORE<b>TECH</b></span></a>
       <nav class="nav" aria-label="Sections">
         <a href="#inside">Inside</a><a href="#night">A night</a><a href="#wards">Wards</a><a href="#coven">Coven</a><a href="#summon">Install</a>
-        <a class="gh" href="https://github.com/cybercore-tech/DaemonHall">GitHub</a>
+        <a class="gh" href="https://github.com/cybercoretech/DaemonHall">GitHub</a>
       </nav>
       <div class="theme-picker"><span class="theme-label">THEME</span><button id="themeButton" class="theme-button" type="button" aria-haspopup="listbox" aria-expanded="false">…</button><div id="themeMenu" class="theme-menu" role="listbox" aria-label="Themes" hidden></div></div>
     </div>
@@ -76,7 +76,7 @@
           <p class="lede">Every daemon you run, summoned into one hall. Live state, logs and history, start and stop, timers, and new services from a form — for your own systemd services, on <code>127.0.0.1</code>.</p>
           <div class="cta">
             <a class="btn btn-hot" href="#summon">Summon it</a>
-            <a class="btn" href="https://github.com/cybercore-tech/DaemonHall">Source on GitHub</a>
+            <a class="btn" href="https://github.com/cybercoretech/DaemonHall">Source on GitHub</a>
           </div>
           <ul class="facts" aria-label="At a glance">
             <li><b>Rust</b> axum</li><li><b>72+3</b> themes</li><li><b>0</b> cloud</li><li><b>MIT</b></li>
@@ -143,7 +143,7 @@
 
     <!-- ── COVEN ────────────────────────────────────────────────────── -->
     <section class="wrap section" id="coven" aria-labelledby="coven-title">
-      <header class="sec-head reveal"><p class="eyebrow">04 · the coven</p><h2 id="coven-title">One watch list, three ways in</h2><p>DaemonHall is the big sibling of <a href="https://cybercore-tech.github.io/cyberwatch/">cyberwatch</a>. They read the same list and agree on what "needs attention" means.</p></header>
+      <header class="sec-head reveal"><p class="eyebrow">04 · the coven</p><h2 id="coven-title">One watch list, three ways in</h2><p>DaemonHall is the big sibling of <a href="https://cybercoretech.github.io/cyberwatch/">cyberwatch</a>. They read the same list and agree on what "needs attention" means.</p></header>
       <figure class="coven reveal">
         <svg viewBox="0 0 900 300" role="img" aria-labelledby="coven-desc">
           <desc id="coven-desc">Diagram: the shared watch list, ~/.config/cyberwatch/config.json, feeds three tools: the cyberwatch bar widget, the cyberwatch TUI, and the DaemonHall web app on 127.0.0.1:8767.</desc>
@@ -164,7 +164,7 @@
       <header class="sec-head reveal"><p class="eyebrow">05 · the ritual</p><h2 id="summon-title">Summon it</h2><p>Two steps. The second is only for controlling <em>system</em> services; user services work without it.</p></header>
       <div class="ritual">
         <div class="step reveal"><span class="step-n">I</span><h3>Build &amp; start</h3>
-<pre class="code" data-copy><code>git clone https://github.com/cybercore-tech/DaemonHall
+<pre class="code" data-copy><code>git clone https://github.com/cybercoretech/DaemonHall
 cd DaemonHall
 ./packaging/install.sh</code></pre>
           <p class="muted">Installs <code>~/.local/bin/daemonhall</code> and a user service, then opens on <a href="http://127.0.0.1:8767/">127.0.0.1:8767</a>.</p></div>
@@ -172,7 +172,7 @@ cd DaemonHall
 <pre class="code" data-copy><code>sudo ./packaging/install-root.sh</code></pre>
           <p class="muted">Installs the root helper and a polkit rule scoped to your watched units. Undo with <code>--uninstall</code>.</p></div>
         <div class="step reveal"><span class="step-n">III</span><h3>Needs</h3>
-          <ul class="needs"><li>Linux with systemd</li><li>Rust (stable)</li><li><a href="https://github.com/cybercore-tech/cybercore">cybercore</a> and <a href="https://github.com/cybercore-tech/cyberwatch">cyberwatch</a> checked out in <code>~/.sysops</code></li><li>A browser. That's it.</li></ul></div>
+          <ul class="needs"><li>Linux with systemd</li><li>Rust (stable)</li><li><a href="https://github.com/cybercoretech/cybercore">cybercore</a> and <a href="https://github.com/cybercoretech/cyberwatch">cyberwatch</a> checked out in <code>~/.sysops</code></li><li>A browser. That's it.</li></ul></div>
       </div>
     </section>
 
@@ -190,10 +190,10 @@ cd DaemonHall
     <div class="wrap"><cybercore-contact repo="DaemonHall"><a href="mailto:dev@cybercoretech.net">dev@cybercoretech.net</a></cybercore-contact></div>
   </section>
   <footer>
-    <div class="wrap foot"><img src="assets/daemon-head.svg" width="28" height="28" alt=""><span>CYBERCORE TECH / DAEMONHALL / MIT / © <span id="year"></span></span><span><a href="https://cybercore-tech.github.io/">CYBERCORE-TECH.GITHUB.IO</a> · <a href="https://github.com/cybercore-tech/DaemonHall">SOURCE</a></span></div>
+    <div class="wrap foot"><img src="assets/daemon-head.svg" width="28" height="28" alt=""><span>CYBERCORE TECH / DAEMONHALL / MIT / © <span id="year"></span></span><span><a href="https://cybercoretech.github.io/">CYBERCORE-TECH.GITHUB.IO</a> · <a href="https://github.com/cybercoretech/DaemonHall">SOURCE</a></span></div>
   </footer>
 
   <script src="app.js" defer></script>
-  <script type="module" src="https://cybercore-tech.github.io/kit/contact.js"></script>
+  <script type="module" src="https://cybercoretech.github.io/kit/contact.js"></script>
 </body>
 </html>

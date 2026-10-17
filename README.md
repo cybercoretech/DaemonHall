@@ -5,7 +5,7 @@
 A web control room for **your own systemd services**: every daemon you run, live, in one hall.
 Rust (axum), served on `127.0.0.1:8767`, styled with the shared CYBERGRID theme catalog: built-in palettes and custom themes made in Cybercore Theme Studio.
 
-It's the web big sibling of [cyberwatch](https://github.com/cybercore-tech/cyberwatch) (the Omarchy bar widget + TUI): same watch list, same discovery, same idea of what "needs attention" means.
+It's the web big sibling of [cyberwatch](https://github.com/cybercoretech/cyberwatch) (the Omarchy bar widget + TUI): same watch list, same discovery, same idea of what "needs attention" means.
 
 ## What it does
 
@@ -19,7 +19,7 @@ It's the web big sibling of [cyberwatch](https://github.com/cybercore-tech/cyber
 ## Install
 
 ```bash
-git clone https://github.com/cybercore-tech/DaemonHall
+git clone https://github.com/cybercoretech/DaemonHall
 cd DaemonHall
 ./packaging/install.sh            # builds, installs ~/.local/bin/daemonhall + user service
 sudo ./packaging/install-root.sh  # optional: lets it control *system* services
@@ -30,7 +30,7 @@ Cybercore 0.8 theme engine from crates.io and cyberwatch from its pinned Git
 revision for unit discovery.
 
 The theme picker reads the shared Cybercore catalog, including custom themes
-saved by [Cybercore Theme Studio](https://github.com/cybercore-tech/cybercore/tree/main/theme-studio).
+saved by [Cybercore Theme Studio](https://github.com/cybercoretech/cybercore/tree/main/theme-studio).
 Open Studio at <http://127.0.0.1:8761/> using the **Theme Studio** link in
 DaemonHall; saved themes are shared with other Cybercore apps using the same
 user configuration directory.

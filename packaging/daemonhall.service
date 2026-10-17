@@ -1,6 +1,6 @@
 [Unit]
 Description=DaemonHall — web control room for your own systemd services (127.0.0.1:8767)
-Documentation=https://github.com/cybercore-tech/DaemonHall
+Documentation=https://github.com/cybercoretech/DaemonHall
 After=default.target
 
 [Service]
