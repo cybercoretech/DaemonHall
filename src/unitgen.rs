@@ -14,7 +14,7 @@ use std::path::Path;
 
 /// First line of every unit DaemonHall writes; `delete` and the UI use it
 /// to tell DaemonHall-made units from hand-written ones.
-pub const MARKER: &str = "# Managed by DaemonHall (cybercore-tech/DaemonHall)";
+pub const MARKER: &str = "# Managed by DaemonHall (cybercoretech/DaemonHall)";
 
 #[derive(Clone, Copy, Debug, Deserialize, Serialize, PartialEq, Eq)]
 #[serde(rename_all = "lowercase")]
