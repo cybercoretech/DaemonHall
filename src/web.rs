@@ -7,9 +7,14 @@
 //! token from the page's <meta> tag in `X-DaemonHall-Token` and, when the
 //! browser sends one, a matching `Origin`. Another origin can't read the
 //! token (no CORS headers are ever sent), so it can't forge either.
+//!
+//! Local clients (Nightwatch's gateway) use the local-token/v1 bearer
+//! instead (see `localtoken`); their `X-Cybercore-Actor` is noted in the
+//! activity log next to what they did.
 
 use crate::journal::{self, ActivityEvent};
 use crate::monitor::{Monitor, Settings};
+use crate::localtoken::LocalToken;
 use crate::{cybergrid, ops, systemd, views};
 use axum::extract::{Path, Query, Request, State};
 use axum::http::{Method, StatusCode, header};
@@ -27,11 +32,17 @@ use std::sync::Arc;
 
 pub struct AppState {
     pub token: String,
+    pub local: LocalToken,
     pub port: u16,
     pub monitor: Arc<Monitor>,
 }
 
 type Shared = Arc<AppState>;
+
+tokio::task_local! {
+    /// Who a local-token request acts for, for the activity log.
+    static ACTOR: Option<String>;
+}
 
 pub fn router(state: Shared) -> Router {
     Router::new()
@@ -78,7 +89,9 @@ async fn guard(State(s): State<Shared>, req: Request, next: Next) -> Response {
     if !host_ok {
         return (StatusCode::MISDIRECTED_REQUEST, "unexpected Host header").into_response();
     }
-    if !matches!(*req.method(), Method::GET | Method::HEAD) {
+    let local = s.local.verify(req.headers());
+    let actor = local.then(|| LocalToken::actor(req.headers())).flatten();
+    if !local && !matches!(*req.method(), Method::GET | Method::HEAD) {
         let h = req.headers();
         let origin_ok = match h.get(header::ORIGIN).and_then(|o| o.to_str().ok()) {
             None => true,
@@ -95,7 +108,7 @@ async fn guard(State(s): State<Shared>, req: Request, next: Next) -> Response {
             return (StatusCode::FORBIDDEN, "missing or bad DaemonHall token").into_response();
         }
     }
-    let mut resp = next.run(req).await;
+    let mut resp = ACTOR.scope(actor, next.run(req)).await;
     let hs = resp.headers_mut();
     hs.insert("x-frame-options", "DENY".parse().unwrap());
     hs.insert("x-content-type-options", "nosniff".parse().unwrap());
@@ -281,6 +294,13 @@ async fn get_settings(State(s): State<Shared>) -> Json<Settings> {
 
 fn outcome(s: &Shared, unit: &str, kind: &str, r: ops::OpResult) -> Response {
     s.monitor.poke();
+    let via = ACTOR
+        .try_with(|a| a.clone())
+        .ok()
+        .flatten()
+        .map(|a| format!(" (via {a})"))
+        .unwrap_or_default();
+    let r = r.map(|m| format!("{m}{via}")).map_err(|e| format!("{e}{via}"));
     match r {
         Ok(m) => {
             journal::record(unit, kind, &m, true);

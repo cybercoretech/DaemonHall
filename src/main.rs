@@ -7,6 +7,7 @@
 
 mod cybergrid;
 mod journal;
+mod localtoken;
 mod monitor;
 mod ops;
 mod systemd;
@@ -61,8 +62,13 @@ async fn main() {
     let monitor = monitor::Monitor::new();
     tokio::spawn(monitor::run(monitor.clone()));
 
+    let local = localtoken::LocalToken::create("daemonhall");
+    if let Some(p) = local.path() {
+        println!("[DaemonHall] local-token for local clients: {}", p.display());
+    }
     let state = Arc::new(web::AppState {
         token: token(),
+        local,
         port,
         monitor,
     });
