@@ -314,7 +314,7 @@ dependencies = [
 [[package]]
 name = "cyberwatch"
 version = "0.1.0"
-source = "git+https://github.com/cybercoretech/cyberwatch?rev=ffd3b1bba4f378f4451035bcde23f6f851d64dd5#ffd3b1bba4f378f4451035bcde23f6f851d64dd5"
+source = "git+https://github.com/cybercoretech/cyberwatch?rev=fc4fd59#fc4fd5925b2c4943b1dd1a5adcf33730096349b4"
 dependencies = [
  "anyhow",
  "crossterm",

@@ -18,10 +18,10 @@ serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 dirs = "6"
 
-# Shared CYBERGRID theme engine. cyberwatch stays pinned to its own Git
-# revision.
+# Shared CYBERGRID theme engine. Pin cyberwatch to an existing upstream
+# revision so clean CI builds can resolve the Git dependency reproducibly.
 cybercore = "0.8"
-cyberwatch = { git = "https://github.com/cybercoretech/cyberwatch", rev = "ffd3b1bba4f378f4451035bcde23f6f851d64dd5" }
+cyberwatch = { git = "https://github.com/cybercoretech/cyberwatch", rev = "fc4fd59" }
 
 [profile.release]
 strip = true
