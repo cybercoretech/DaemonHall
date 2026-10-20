@@ -21,7 +21,7 @@ dirs = "6"
 # Shared CYBERGRID theme engine. Pin cyberwatch to an existing upstream
 # revision so clean CI builds can resolve the Git dependency reproducibly.
 cybercore = "0.8"
-cyberwatch = { git = "https://github.com/cybercoretech/cyberwatch", rev = "769b92c8edc70357d87cc42fd0403d14f17196df" }
+cyberwatch = { git = "https://github.com/cybercoretech/cyberwatch", rev = "fc4fd59" }
 
 [profile.release]
 strip = true

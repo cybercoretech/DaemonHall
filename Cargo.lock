@@ -293,6 +293,16 @@ dependencies = [
 
 [[package]]
 name = "cybercore"
+version = "0.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "44d45acf886e3bf7ea23614d0f12ae6f23889cb5ac96c59376d1b3ef947e984e"
+dependencies = [
+ "serde",
+ "serde_json",
+]
+
+[[package]]
+name = "cybercore"
 version = "0.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "112b5c4b63ba37d34bb309b13a7272b8a73aa7ae4b1336baa9b7017a99e73546"
@@ -302,22 +312,13 @@ dependencies = [
 ]
 
 [[package]]
-name = "cybercore"
-version = "0.8.1"
-source = "git+https://github.com/cybercoretech/cyberwatch?rev=769b92c8edc70357d87cc42fd0403d14f17196df#769b92c8edc70357d87cc42fd0403d14f17196df"
-dependencies = [
- "serde",
- "serde_json",
-]
-
-[[package]]
 name = "cyberwatch"
 version = "0.1.0"
-source = "git+https://github.com/cybercoretech/cyberwatch?rev=769b92c8edc70357d87cc42fd0403d14f17196df#769b92c8edc70357d87cc42fd0403d14f17196df"
+source = "git+https://github.com/cybercoretech/cyberwatch?rev=fc4fd59#fc4fd5925b2c4943b1dd1a5adcf33730096349b4"
 dependencies = [
  "anyhow",
  "crossterm",
- "cybercore 0.8.1",
+ "cybercore 0.5.0",
  "dirs",
  "ratatui",
  "serde",
